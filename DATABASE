@@ -1,0 +1,72 @@
+class User {
+    - user_id: int
+    - username: str
+    - password: str
+    - role: Role
+}
+
+class Role {
+    - role_id: int
+    - name: str
+}
+
+class Product {
+    - product_id: int
+    - name: str
+    - price: float
+    - stock: int
+}
+
+class Supplier {
+    - supplier_id: int
+    - name: str
+    - contact: str
+}
+
+class Company {
+    - company_id: int
+    - name: str
+}
+
+class Branch {
+    - branch_id: int
+    - company: Company
+    - name: str
+}
+
+class Warehouse {
+    - warehouse_id: int
+    - branch: Branch
+    - name: str
+}
+
+class Transaction {
+    - transaction_id: int
+    - store: Store
+    - type: str  # purchase, sale, return
+}
+
+class Store {
+    - store_id: int
+    - name: str
+}
+
+class Report {
+    - report_id: int
+    - type: str  # purchase, sales, stock, expenses
+    - date: str
+}
+
+class Stock {
+    - stock_id: int
+    - product: Product
+    - warehouse: Warehouse
+    - quantity: int
+}
+
+// Relationships
+User "1" -- "*" Role
+Branch "1" -- "*" Warehouse
+Warehouse "1" -- "*" Stock
+Store "1" -- "*" Transaction
+Transaction "*" -- "1" Report

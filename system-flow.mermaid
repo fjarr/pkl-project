@@ -1,0 +1,24 @@
+flowchart TB
+    subgraph Frontend
+        UI[User Interface]
+        RC[React Components]
+        RS[Redux Store]
+        AS[API Services]
+    end
+
+    subgraph Backend
+        API[Express API]
+        CT[Controllers]
+        SV[Services]
+        MD[Models]
+        DB[(MySQL Database)]
+    end
+
+    UI --> RC
+    RC <--> RS
+    RC --> AS
+    AS --> API
+    API --> CT
+    CT --> SV
+    SV --> MD
+    MD <--> DB

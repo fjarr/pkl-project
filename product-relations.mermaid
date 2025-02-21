@@ -1,0 +1,17 @@
+erDiagram
+    products ||--o{ product_variants : has
+    products ||--o{ product_images : has
+    products ||--o{ product_prices : has
+    products ||--o{ product_suppliers : has
+    products ||--o{ product_bom : has
+    products }|--|| product_categories : belongs_to
+    products }|--|| brands : belongs_to
+    products }|--|| units : measured_in
+
+    product_variants ||--o{ product_images : has
+    product_variants ||--o{ product_prices : has
+    product_variants ||--o{ product_suppliers : has
+
+    product_categories ||--o{ product_categories : has_subcategory
+
+    suppliers ||--o{ product_suppliers : supplies
